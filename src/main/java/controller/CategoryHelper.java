@@ -48,6 +48,7 @@ public class CategoryHelper {
     
     public List<Category> getCategories() {
         EntityManager categoriesEM = categoriesEMF.createEntityManager();
+        categoriesEM.getTransaction().begin();
         TypedQuery<Category> categoryTypedQuery = categoriesEM.createQuery("SELECT category FROM Category category", Category.class);
         
         List<Category> categories = categoryTypedQuery.getResultList();
