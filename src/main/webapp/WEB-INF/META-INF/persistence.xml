@@ -14,10 +14,10 @@
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://database-2.c1nvlcxntk9o.us-east-2.rds.amazonaws.com:3306/ardatest?createDatabaseIfNotExist=true" />
-			<property name="javax.persistence.jdbc.user" value="admin" />
+				value="jdbc:mysql://localhost:3306/TasklistPlanner?createDatabaseIfNotExist=true" />
+			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password"
-				value="Azerty123*" />
+				value="root" />
 			<property
 				name="javax.persistence.schema-generation.database.action"
 				value="create"></property>
