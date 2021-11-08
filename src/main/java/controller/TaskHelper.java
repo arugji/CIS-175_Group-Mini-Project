@@ -21,9 +21,7 @@ public class TaskHelper {
 	public Task searchForTasksById(int id) {
 		EntityManager tasksEM = tasksEMF.createEntityManager();
 		tasksEM.getTransaction().begin();
-
 		Task foundTask = tasksEM.find(Task.class, id);
-
 		tasksEM.close();
 		return foundTask;
 	}
@@ -31,7 +29,6 @@ public class TaskHelper {
 	public void insertTask(Task task) {
 		EntityManager tasksEM = tasksEMF.createEntityManager();
 		tasksEM.getTransaction().begin();
-
 		tasksEM.persist(task);
 		tasksEM.getTransaction().commit();
 		tasksEM.close();
@@ -40,7 +37,6 @@ public class TaskHelper {
 	public void updateTask(Task task) {
 		EntityManager tasksEM = tasksEMF.createEntityManager();
 		tasksEM.getTransaction().begin();
-
 		tasksEM.merge(task);
 		tasksEM.getTransaction().commit();
 		tasksEM.close();
@@ -51,13 +47,9 @@ public class TaskHelper {
 		tasksEM.getTransaction().begin();
 		TypedQuery<Task> taskTypedQuery = tasksEM.createQuery("SELECT task FROM Task task WHERE task.id = :selectedId",
 				Task.class);
-
 		taskTypedQuery.setParameter("selectedId", task.getId());
-
 		taskTypedQuery.setMaxResults(1);
-
 		Task taskResult = taskTypedQuery.getSingleResult();
-
 		tasksEM.remove(taskResult);
 		tasksEM.getTransaction().commit();
 		tasksEM.close();
